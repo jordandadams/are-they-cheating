@@ -9,13 +9,13 @@ const Navbar = () => {
             <div className="flex space-x-4">
                 <Link
                     href="/docs"
-                    className="text-black font-inter border border-black rounded-full px-4 py-2"
+                    className="text-white bg-black font-inter border rounded-full px-4 py-2 hover:bg-transparent hover:text-black hover:border-black"
                 >
                     Docs
                 </Link>
                 <Link
                     href="/login"
-                    className="text-black font-inter border border-black rounded-full px-4 py-2"
+                    className="text-white bg-black font-inter border rounded-full px-4 py-2 hover:bg-transparent hover:text-black hover:border-black"
                 >
                     Submit Video
                 </Link>

@@ -24,7 +24,7 @@ export default function HomePage() {
           ?
         </h1>
         <p className="text-xl text-gray-600 font-inter mb-5">
-          The comprehensive cheating detection service for all your needs
+          Spot the cheater! Analyze gaming clips, make the call, and vote with others!
         </p>
         <div className="flex space-x-4">
           <button id='test' className="px-6 py-3 font-semibold rounded-md font-inter bg-gradient-to-r from-red-500 to-orange-500 text-white hover:text-transparent hover:bg-clip-text">
