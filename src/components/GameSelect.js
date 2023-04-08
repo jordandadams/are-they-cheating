@@ -1,4 +1,3 @@
-// GameSelect.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
