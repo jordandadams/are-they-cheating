@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import GameSelect from '../components/GameSelect';
+import GameSelect, { useSelectedGame } from '../components/GameSelect';
+import Game from '../components/Game';
 import { animateScroll as scroll } from 'react-scroll';
 
 export default function HomePage() {
   const [showGameSelect, setShowGameSelect] = useState(false);
+
+  const { selectedGame } = useSelectedGame();
 
   // Function to handle scrolling to the GameSelect section
   const handlePlayNowClick = () => {
@@ -70,6 +73,11 @@ export default function HomePage() {
           {showGameSelect && <GameSelect />}
         </div>
         <div style={{ height: '20vh' }}></div>
+        {selectedGame && (
+          <div id="game-section">
+            <Game />
+          </div>
+        )}
       </div>
     </>
   );
