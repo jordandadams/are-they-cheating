@@ -41,7 +41,7 @@ export default function HomePage() {
         </p>
         <div className="flex space-x-4">
           <button
-            id='test'
+            id='playNowBtn'
             className="px-6 py-3 font-semibold rounded-md font-inter bg-gradient-to-r from-red-500 to-orange-500 text-white hover:text-transparent hover:bg-clip-text"
             onClick={handlePlayNowClick} // Call the handlePlayNowClick function on click
           >
@@ -49,12 +49,12 @@ export default function HomePage() {
           </button>
         </div>
         <style jsx>{`
-          #test {
+          #playNowBtn {
             position: relative;
             border: none;
             transition: box-shadow 0.2s ease;
           }
-          #test:hover {
+          #playNowBtn:hover {
             box-shadow: 0 0 0 2px red, 0 0 0 4px orange;
           }
           @keyframes fadeIn {
@@ -63,7 +63,7 @@ export default function HomePage() {
           }
           .fade-in {
             animation: fadeIn 1s;
-            animation-fill-mode: forwards;s
+            animation-fill-mode: forwards;
           }
         `}</style>
         {/* Add spacing between HomePage content and GameSelect section */}
