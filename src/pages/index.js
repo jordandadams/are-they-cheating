@@ -1,7 +1,17 @@
-import React from 'react'
-import Head from 'next/head'
+import React, { useState } from 'react';
+import Head from 'next/head';
+import GameSelect from '../components/GameSelect';
+import { animateScroll as scroll } from 'react-scroll';
 
 export default function HomePage() {
+  const [showGameSelect, setShowGameSelect] = useState(false);
+
+  // Function to handle scrolling to the GameSelect section
+  const handlePlayNowClick = () => {
+    setShowGameSelect(true);
+    scroll.scrollToBottom(); // Scroll smoothly to the bottom of the page
+  };
+
   return (
     <>
       <Head>
@@ -27,7 +37,11 @@ export default function HomePage() {
           Spot the cheater! Analyze gaming clips, make the call, and vote with others!
         </p>
         <div className="flex space-x-4">
-          <button id='test' className="px-6 py-3 font-semibold rounded-md font-inter bg-gradient-to-r from-red-500 to-orange-500 text-white hover:text-transparent hover:bg-clip-text">
+          <button
+            id='test'
+            className="px-6 py-3 font-semibold rounded-md font-inter bg-gradient-to-r from-red-500 to-orange-500 text-white hover:text-transparent hover:bg-clip-text"
+            onClick={handlePlayNowClick} // Call the handlePlayNowClick function on click
+          >
             Play Now
           </button>
         </div>
@@ -40,7 +54,22 @@ export default function HomePage() {
           #test:hover {
             box-shadow: 0 0 0 2px red, 0 0 0 4px orange;
           }
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          .fade-in {
+            animation: fadeIn 1s;
+            animation-fill-mode: forwards;s
+          }
         `}</style>
+        {/* Add spacing between HomePage content and GameSelect section */}
+        <div style={{ height: '20vh' }}></div>
+        {/* Conditionally render the GameSelect component based on the state */}
+        <div id="hello" className={showGameSelect ? 'fade-in' : ''}>
+          {showGameSelect && <GameSelect />}
+        </div>
+        <div style={{ height: '20vh' }}></div>
       </div>
     </>
   );
