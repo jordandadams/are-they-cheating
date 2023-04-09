@@ -14,7 +14,7 @@ const gamesList = [
 ];
 
 // Define a regular expression for allowed video platforms
-const videoLinkRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|twitch\.tv|medal\.tv|streamable\.com)\/.+/;
+const videoLinkRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|clips\.twitch\.tv|twitter\.com|medal\.tv|streamable\.com)\/.+/;
 
 function SubmitModal() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -44,7 +44,7 @@ function SubmitModal() {
     // Separate validation function for "Video Link" input field
     const validateVideoLink = () => {
         if (!videoLink || !videoLinkRegex.test(videoLink)) {
-            setVideoLinkError('Video link must be from YouTube, Twitch, Medal.tv, or Streamable.');
+            setVideoLinkError('Video link must be from YouTube, Twitch, Twitter, Medal.tv, or Streamable.');
             return false;
         }
         setVideoLinkError('');
