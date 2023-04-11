@@ -12,6 +12,19 @@ const useSelectedGame = () => useContext(GameContext);
 // Export the custom hook so it can be used in other components
 export { useSelectedGame };
 
+// Mapping between image file names and display names
+const gameDisplayNames = {
+    'apex-legends.jpg': 'Apex Legends',
+    'csgo.jpg': 'Counter Strike Global Offensive',
+    'fortnite.jpg': 'Fortnite',
+    'leagueoflegends.jpg': 'League of Legends',
+    'minecraft.jpg': 'Minecraft',
+    'mw2.jpg': 'Modern Warfare 2',
+    'overwatch2.jpg': 'Overwatch 2',
+    'valorant.jpg': 'Valorant',
+    'wz2.jpg': 'Warzone 2',
+};
+
 export default function GameSelect() {
     // List of game images
     const games = [
@@ -34,8 +47,9 @@ export default function GameSelect() {
 
     // Handle game selection
     const handleGameSelect = (game) => {
-        setSelectedGame(game);
-        console.log(`Selected game: ${game}`);
+        const gameDisplayName = gameDisplayNames[game];
+        setSelectedGame(gameDisplayName);
+        console.log(`Selected game: ${gameDisplayName}`);
         scroll.scrollToBottom();
     };
 

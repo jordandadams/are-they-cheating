@@ -61,6 +61,23 @@ function SubmitModal() {
         return true;
     }
 
+    // Function to submit video data to the backend API
+    const submitVideo = async (data) => {
+        try {
+            const response = await fetch('http://localhost:3001/api/video', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+            const result = await response.json();
+            console.log(result); // Log the response from the server
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent the form from refreshing the page
 
@@ -83,12 +100,12 @@ function SubmitModal() {
 
         // Submit if validation passes
         if (isValid) {
-            // Perform submission logic here
-            console.log({
-                submittedBy: submittedBy || 'Anonymous',
+            const data = {
+                username: submittedBy || 'Anonymous',
                 videoLink,
-                selectedGame,
-            });
+                game: selectedGame,
+            };
+            submitVideo(data);
             closeModal();
         }
     };
